@@ -11,6 +11,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <defs.h>
+#include <stdio.h>
+
+
 
 #include "../os_crypto/blowfish/bf_op.h"
 #include "../os_crypto/md5/md5_op.h"
@@ -143,7 +146,9 @@ START_TEST(test_md5sha1cmdfile)
     os_sha1 sha1buffer;
 
     ck_assert_int_eq(OS_MD5_SHA1_File(file_name, "cat ", md5buffer, sha1buffer, OS_BINARY), 0);
-
+    
+    printf("File: <%s>\n", file_name);
+    
     ck_assert_str_eq(md5buffer, string_md5);
     ck_assert_str_eq(sha1buffer, string_sha1);
 }
