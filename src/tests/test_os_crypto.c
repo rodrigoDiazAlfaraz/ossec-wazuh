@@ -142,7 +142,7 @@ START_TEST(test_md5sha1cmdfile)
     os_md5 md5buffer;
     os_sha1 sha1buffer;
 
-    ck_assert_int_eq(OS_MD5_SHA1_File(file_name, "cat ", md5buffer, sha1buffer, OS_TEXT), 0);
+    ck_assert_int_eq(OS_MD5_SHA1_File(file_name, "cat ", md5buffer, sha1buffer, OS_BINARY), 0);
 
     ck_assert_str_eq(md5buffer, string_md5);
     ck_assert_str_eq(sha1buffer, string_sha1);
