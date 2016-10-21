@@ -139,8 +139,8 @@ START_TEST(test_md5sha1cmdfile)
     strncpy(file_name, "/tmp/tmp_file-XXXXXX", 256);
     int fd = mkstemp(file_name);
 
-    write(fd, string, strlen(string));
-    close(fd);
+    ck_assert_int_gt(fd, 2);
+    ck_assert_int_eq(write(fd, string, strlen(string)), strlen(string));    close(fd);
 
     os_md5 md5buffer;
     os_sha1 sha1buffer;
