@@ -48,6 +48,8 @@ node {
     dir ('src') {
         sh 'sudo cat /var/ossec/etc/ossec.conf'
         sh 'sudo make V=1 TARGET=server test-rules'
+        sh 'sudo make clean && sudo rm -rf /var/ossec/'
+
     }
 
     //Stage advanced ossec compilation
